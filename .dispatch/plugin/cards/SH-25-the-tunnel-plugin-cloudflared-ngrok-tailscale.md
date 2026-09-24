@@ -1,6 +1,6 @@
 # SH-25 — The tunnel plugin: cloudflared, ngrok, Tailscale
 
-Wave: 1 · Run: single · Depends on: none · Complexity: ***
+Wave: 1 · Run: single · Depends on: none
 Branch: split-sh-25 · Base: main
 
 ## What
