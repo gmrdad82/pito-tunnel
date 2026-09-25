@@ -1,7 +1,7 @@
 # SH-25 — The tunnel plugin: cloudflared, ngrok, Tailscale
 
 Wave: 1 · Run: single · Depends on: pito-work/WK-20
-Branch: split-sh-25 · Base: main
+Touches: Cargo.toml, Cargo.lock, plugin.toml, src/, tests/, README.md
 
 ## What
 A tunnel plugin offers three provider adapters, explicit process permissions, status and a public URL through the remote world.
