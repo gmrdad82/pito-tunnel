@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -uo pipefail
+cd "$(dirname "$0")/.." || exit 1
+status=0
+if grep -rnIE '(^|[^a-z])/home/|~/[A-Za-z]|\.local/share|localhost:[0-9]+|-dev\.[a-z]+\.[a-z]+' \
+    --exclude-dir=.git --exclude-dir=target --exclude-dir=tmp --exclude=gate .; then
+  echo "A local path, a private tool or a dev hostname reached a public file (shown above)."
+  status=1
+fi
+if grep -rniE '\bitem [0-9]+\b|\b(dev[0-9]+|qa[0-9]+|copy[0-9]+|designer[0-9]+|reviewer[0-9]+|team-lead)\b' \
+    --exclude-dir=.git --exclude-dir=target --exclude-dir=tmp --exclude=gate .; then
+  echo "An agent name or an internal item number reached a public file (shown above)."
+  status=1
+fi
+exit "$status"
